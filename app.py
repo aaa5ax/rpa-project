@@ -40,9 +40,6 @@ for index, row in prices.iterrows():
 
 import datetime as dt
 
-df = get_pdf('MasterInvoice copy2.pdf')
-# display(df)
-
 def get_order_data(invoice_num, filename, directory):
     order_form = openpyxl.load_workbook(directory+filename) # get basic customer info and date
     selected_sheet = order_form['OrderForm']
