@@ -85,6 +85,9 @@ def create_invoice(invoice_num, order_data, directory):
 
 create_invoice(invoice_num=8515, order_data=order_data, directory=directory)
 
+#added up here instead of below
+gmail_password_path = select_file('Please select the gmail password file')
+
 def send_email(invoice_num, name, email, date, directory):
     import smtplib
     from email.message import EmailMessage
@@ -92,7 +95,7 @@ def send_email(invoice_num, name, email, date, directory):
     # Enter your gmail user name and password
 
     gmail_user = "abrahamnielson555@gmail.com"
-    gmail_password_path = select_file('Please select the gmail password file')
+
     gmail_password = open(gmail_password_path).read()
 
     # List of recipients
@@ -142,7 +145,7 @@ Email: sales@pythontechco.com"""
     mail_server.send_message(message)
     mail_server.quit()
 
-send_email(invoice_num=8515, name=name, email=email, date=date, directory=directory)
+# send_email(invoice_num=8515, name=name, email=email, date=date, directory=directory)
 
 filenames = os.listdir(directory)
 filenames = sorted(filenames)
