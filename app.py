@@ -28,8 +28,6 @@ while True:
     else:
         show_message('Error', 'Re-enter a directory that contains ProductData.xlsx, MasterInvoice.pdf, Order1.xlsx, Order2.xlsx, Order3.xlsx, and Order4.xlsx')
 
-print(directory)
-
 descriptions = pd.read_excel(directory+'ProductData.xlsx', sheet_name='Descriptions')
 product_descriptions = {}
 for index, row in descriptions.iterrows():
@@ -80,10 +78,10 @@ def get_order_data(invoice_num, filename, directory):
 
 
 order_data, name, email, date = get_order_data(8515, 'Order1.xlsx', directory)
-print(order_data)
-print(name)
-print(email)
-print(date)
+# print(order_data)
+# print(name)
+# print(email)
+# print(date)
 
 def create_invoice(invoice_num, order_data, directory):
     create_pdf(directory+'MasterInvoice.pdf', directory+f'Invoice {invoice_num}.pdf', order_data)
