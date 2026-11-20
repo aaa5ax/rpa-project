@@ -11,8 +11,6 @@ pd.set_option('display.max_columns', None) # Display option to show all columns
 pd.set_option('display.max_rows', None) # Display option to show all rows
 
 while True:
-    directory = single_input("What is the directory where your files reside?") # ASK ABOUT THIS, should it be allowed to include quotes
-
     while True:
         directory = single_input("What is the directory where your files reside?")
         try:
