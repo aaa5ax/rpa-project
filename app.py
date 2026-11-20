@@ -13,16 +13,19 @@ pd.set_option('display.max_rows', None) # Display option to show all rows
 while True:
     directory = single_input("What is the directory where your files reside?") # ASK ABOUT THIS, should it be allowed to include quotes
 
-    # if """'""" in directory: # Remove Quotes if there are any
-    #     direct1 = directory.split("'")
-    #     directory = direct1[1]
-    #     display(directory)
+    while True:
+        directory = single_input("What is the directory where your files reside?")
+        try:
+            directory = directory.strip("'")
+            direct2 = directory.split('/') # Check directory and add the / symbol
+            if direct2[-1] != '':
+                directory = directory + '/'
+            directory_list = os.listdir(directory) 
+            break
+        except:
+            show_message('Error', 'Re-enter a valid directory!')
 
-    direct2 = directory.split('/') # Check directory and add the / symbol
-    if direct2[-1] != '':
-        directory = directory + '/'
-
-    directory_list = os.listdir(directory) # Check to make sure directory has the right files
+    # Check to make sure directory has the right files
     if ('ProductData.xlsx' in directory_list) and ('MasterInvoice.pdf' in directory_list) and ('Order1.xlsx' in directory_list) and ('Order2.xlsx' in directory_list) and ('Order3.xlsx' in directory_list) and ('Order4.xlsx' in directory_list):
         break
     else:
